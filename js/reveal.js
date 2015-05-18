@@ -3375,7 +3375,7 @@
 	}
 
 	function navigateLeft() {
-
+	RI.featureTick("navigateLeft");
 		// Reverse for RTL
 		if( config.rtl ) {
 			if( ( isOverview() || nextFragment() === false ) && availableRoutes().left ) {
@@ -3390,7 +3390,7 @@
 	}
 
 	function navigateRight() {
-
+	RI.featureTick("navigateRight");
 		// Reverse for RTL
 		if( config.rtl ) {
 			if( ( isOverview() || previousFragment() === false ) && availableRoutes().right ) {
@@ -3405,7 +3405,7 @@
 	}
 
 	function navigateUp() {
-
+	RI.featureTick("navigateUp");
 		// Prioritize hiding fragments
 		if( ( isOverview() || previousFragment() === false ) && availableRoutes().up ) {
 			slide( indexh, indexv - 1 );
@@ -3414,7 +3414,7 @@
 	}
 
 	function navigateDown() {
-
+	RI.featureTick("navigateDown");
 		// Prioritize revealing fragments
 		if( ( isOverview() || nextFragment() === false ) && availableRoutes().down ) {
 			slide( indexh, indexv + 1 );
@@ -3429,7 +3429,7 @@
 	 * 3) Previous horizontal slide
 	 */
 	function navigatePrev() {
-
+	RI.featureTick("navigatePrev");
 		// Prioritize revealing fragments
 		if( previousFragment() === false ) {
 			if( availableRoutes().up ) {
@@ -3460,7 +3460,7 @@
 	 * The reverse of #navigatePrev().
 	 */
 	function navigateNext() {
-
+	RI.featureTick("navigateNext");
 		// Prioritize revealing fragments
 		if( nextFragment() === false ) {
 			if( availableRoutes().down ) {
@@ -3501,7 +3501,6 @@
 	 * Handler for the document level 'keypress' event.
 	 */
 	function onDocumentKeyPress( event ) {
-
 		// Check if the pressed key is question mark
 		if( event.shiftKey && event.charCode === 63 ) {
 			if( dom.overlay ) {
@@ -3518,7 +3517,7 @@
 	 * Handler for the document level 'keydown' event.
 	 */
 	function onDocumentKeyDown( event ) {
-
+		RI.featureTick("KeyDown", {keycode: String.fromCharCode(event.keyCode)})
 		// If there's a condition specified and it returns false,
 		// ignore this event
 		if( typeof config.keyboardCondition === 'function' && config.keyboardCondition() === false ) {
